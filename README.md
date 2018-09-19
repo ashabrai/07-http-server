@@ -1,6 +1,6 @@
 ##HTTP Server
 This project involves creating a web server that can take certain requests and will give a response. 
-Specifically, the task here is to get the server to respond with a cowsay cow when entering a 
+The task is to get the server to respond with a cowsay cow when entering a 
 POST request to the correct route.
 
 ##Getting Started
