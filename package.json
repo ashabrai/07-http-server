@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "eslint . && jest --coverage",
     "lint": "eslint ."
   },
   "keywords": [],
@@ -21,6 +21,6 @@
     "jest": "^23.6.0"
   },
   "dependencies": {
-    "ajv": "^6.5.3"
+    "winston": "^3.1.0"
   }
 }
