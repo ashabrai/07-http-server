@@ -17,10 +17,24 @@ const app = http.createServer((request, response) => {
         response.writeHead(200, ({ 'Content-Type': 'text/html' }));
 
         response.write(`<!DOCTYPE html>
-         <head>Here's the head</head>
-         <body>Wouldn't it be <a  href="/cowsay/api/cowsay">cool to have a cow as a pet?</body>
-         </html>
-       `);
+            <html>
+              <head>
+                <title> cowsay </title>  
+              </head>
+              <body>
+               <header>
+                 <nav>
+                   <ul> 
+                     <li><a href="/cowsay">cowsay</a></li>
+                   </ul>
+                 </nav>
+               <header>
+               <main>
+                 <p>This project is designed to test specific routes and return status messages</p>
+               </main>
+              </body>
+            </html>`);
+
         logger.log(logger.INFO, 'Responding back with 200 status and a HTML document');
         response.end();
         return undefined;
@@ -28,11 +42,11 @@ const app = http.createServer((request, response) => {
       if (parsedRequest.method === 'POST' && parsedRequest.url === '/api/cowsay') {
         response.writeHead(200, { 'Content-Type': 'application/json' });
         response.write(cowsay.say({ text: parsedRequest.body.text }));
-      }
-      logger.log(logger.INFO, 'Responding back with 200 status code and JSON document');
-      response.end();
-      return undefined;
 
+        logger.log(logger.INFO, 'Responding back with 200 status code and JSON document');
+        response.end();
+        return undefined;
+      }
       logger.log(logger.INFO, 'Responding with a 404 status code :NOT FOUND');
       response.writeHead(404, { 'Content-Type': 'text/plain' });
       response.write('Not Found');
